@@ -1,0 +1,28 @@
+.example-container {
+  height: 400px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  display: inline-block;
+  position: relative;
+  width: 28%;
+  text-align: left;
+  margin: 22px;
+}
+
+.app-header {
+  font-style: oblique;
+  background: #2b8bee;
+  color: white;
+  width: 80%;
+  text-shadow: 1px 1px blue;
+  margin-left: 10%;
+  padding: 13px;
+  text-align: center;
+  border-radius: 26px;
+}
