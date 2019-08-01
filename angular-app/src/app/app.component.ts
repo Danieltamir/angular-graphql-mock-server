@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {UserService} from './services/user.service';
 import {Subscription} from 'rxjs';
 import {FormControl, Validators} from '@angular/forms';
+import {User} from './user.model';
 
 @Component({
   selector: 'app-root',
@@ -9,16 +10,12 @@ import {FormControl, Validators} from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  users: User[] = [{name: 'Daniel', lastName: 'Tamir', age: 25}];
-  displayedColumns = ['name', 'lastName', 'age'];
-  usersSubscription: Subscription;
-  firstName = new FormControl('', [Validators.required]);
-  lastName = new FormControl('', [Validators.required]);
-  age = new FormControl('', [Validators.required]);
-
-  getErrorMessage() {
-    return this.firstName.hasError('required') ? 'You must enter a value' : '';
-  }
+  public users: User[];
+  public displayedColumns = ['name', 'lastName', 'age'];
+  public usersSubscription: Subscription;
+  public firstName = new FormControl('', [Validators.required]);
+  public lastName = new FormControl('', [Validators.required]);
+  public age = new FormControl('', [Validators.required]);
 
   constructor(private userService: UserService) {
   }
@@ -32,10 +29,8 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.usersSubscription.unsubscribe();
   }
-}
 
-export interface User {
-  name: string;
-  lastName: string;
-  age: number;
+  getErrorMessage() {
+    return this.firstName.hasError('required') ? 'You must enter a value' : '';
+  }
 }

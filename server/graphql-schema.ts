@@ -4,67 +4,29 @@ export const schemaTypes = `
   ## =========================================
   
   type Query {
-    characters: [Character]
-    dragons: [Dragon]
-    getCharacterById(id: ID!): Character
+    users: [User]
+    getUserById(id: ID!): User
   }
   
-  type Character {
+  type User {
     id: ID
     firstName: String
     lastName: String
     age: Int
-    alive: Boolean
-    locationInfo : Location
-    father: Character
-    mother: Character
   } 
-  
-  type Location {
-    address: String
-    city: String
-    country: String
-    postalCode : Int
-  }   
-    
-  type Dragon {
-    id: ID
-    name: String
-    height: Int
-    age: Int
-    kills: Int
-    type: DragonType
-  }
-  
-  enum DragonType {
-    FIRE
-    ICE
-  }
 
   ## Mutations! 
   ## =========================================
   
   type Mutation {
-    addNewCharacter(input: CharacterInput): MutationResult!
-    editCharacter(input: CharacterInput): MutationResult!
-    killCharacter(characterId: ID): MutationResult!
-    deleteCharacter(characterId: ID): MutationResult!
+    addNewUser(input: UserInput): MutationResult!
   }
   
-  input CharacterInput {
+  input UserInput {
     firstName: String!
     lastName: String
     age: Int
-    alive : Boolean
-    locationInfo : LocationInput
   } 
-  
-  input LocationInput {
-    address: String
-    city: String
-    country: String
-    postalCode : Int
-  }  
   
   type MutationResult {
     successful: Boolean
